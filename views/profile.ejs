@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>My Webshop</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="/static/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">My Webshop</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Buy
+            </div>
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="/buyPc">
+                    <i class="fas fa-desktop"></i>
+                    <span>PC</span></a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="/buyCellPhone">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Cell Phone</span></a>
+            </li>
+
+
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/buyCellPhone">Buy Cell Phone</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/buyPc">Buy PC</a>
+                        </li>
+
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id="userName" class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                <img class="img-profile rounded-circle"
+                                    src="https://startbootstrap.github.io/startbootstrap-sb-admin-2/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="/profile">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+                                </a>
+
+                                <a class="dropdown-item" href="/about">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> About
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" id="clickLogout" href="#" data-toggle="modal"
+                                    data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+
+                    <div class="row" style="margin-bottom: 2%">
+                        <h5 style="color:black; font-weight: bold ; margin-left: 3%;">Profile details</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 mb-3">
+                            <span>First name</span>
+                            <br><input class="form-control form-control-user" type="text" id="firstName"
+                                placeholder="----">
+                        </div>
+
+                        <div class="col-lg-3 mb-3">
+                            <span>Last name</span>
+                            <br><input class="form-control form-control-user" type="text" id="lastName"
+                                placeholder="----">
+
+
+                        </div>
+                        
+                        <div class="col-lg-3 mb-3">
+
+                            <span>Phone number</span>
+                            <br><input class="form-control form-control-user" type="text" id="phoneNum"
+                                placeholder="----">
+
+                        </div>
+                        <div class="col-lg-3 mb-3">
+
+                            <span>Country</span>
+                            <br><input class="form-control form-control-user" type="text" id="country"
+                                placeholder="----">
+                        </div>
+                    </div>
+
+                    <!--Secend row-->
+                    <div class="row">
+                        <div class="col-lg-3 mb-3">
+                            <span>Email</span>
+                            <br><input class="form-control form-control-user" type="Email" id="email"
+                                title="Enter valid email with @, phone, or username" placeholder="----">
+                        </div>
+
+                        <div class="col-lg-3 mb-3">
+                            <span>City</span>
+                            <br><input class="form-control form-control-user" type="text" id="city" placeholder="----">
+
+
+                        </div>
+                        <div class="col-lg-3 mb-3">
+
+                            <span>Street</span>
+                            <br><input class="form-control form-control-user" type="text" id="street"
+                                placeholder="----">
+
+                        </div>
+                        <div class="col-lg-3 mb-3">
+
+                            <span>Zip code</span>
+                            <br><input class="form-control form-control-user" type="text" id="zipCode"
+                                placeholder="----">
+                        </div>
+
+
+
+                    </div>
+                    <div class="row" style="display: flex;
+                    flex-direction: row-reverse;">
+                        <button id="updateBtn" type="button" class="btn btn-success">Update!</button>
+                    </div>
+
+
+                    <hr class="sidebar-divider">
+
+                    <!--The row of the changig password section-->
+                    <div class="row" style="margin-bottom: 2%">
+                        <h5 style="color:black; font-weight: bold; margin-left:3%">Change password</h5>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 mb-3">
+
+                            <div class="form-group row">
+                                <div class="col mb-3 mb-sm-0">
+                                    <input type="password" id="oldPassword" name="oldPassword"
+                                        class="form-control form-control-user" placeholder="Old password"
+                                        onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 33 || event.charCode == 64 || (event.charCode >= 35 && event.charCode <= 38) || event.charCode == 94 || event.charCode == 42 || event.charCode == 40 || event.charCode == 41 )"
+                                        maxlength="16"
+                                        value="<%= typeof oldPassword != 'undefined' ? oldPassword : '' %>" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" id="newPassword" name="newPassword"
+                                        class="form-control form-control-user" placeholder="New password"
+                                        onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 33 || event.charCode == 64 || (event.charCode >= 35 && event.charCode <= 38) || event.charCode == 94 || event.charCode == 42 || event.charCode == 40 || event.charCode == 41 )"
+                                        maxlength="16"
+                                        value="<%= typeof newPassword != 'undefined' ? newPassword : '' %>" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="password" id="confirmPassword" name="confirmPassword"
+                                        class="form-control form-control-user" placeholder="Confirm Password"
+                                        onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 33 || event.charCode == 64 || (event.charCode >= 35 && event.charCode <= 38) || event.charCode == 94 || event.charCode == 42 || event.charCode == 40 || event.charCode == 41 )"
+                                        maxlength="16"
+                                        value="<%= typeof confirmPassword != 'undefined' ? confirmPassword : '' %>" />
+                                </div>
+                            </div>
+
+                            <button id="changePassword" type="submit" style="width: 100%;" class="btn btn-dark">
+                                Change Password
+                            </button>
+
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <div id="dialogBox" class="text-center">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Your Website 2020</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="/dashboard">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ChangeDetailesModal-->
+        <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Information</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body" id="modal1"></div>
+                    <div class="modal-footer">
+                        <button id="dismissBtn" class="btn btn-secondary" type="button"
+                            data-dismiss="modal">Dismiss</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="/static/vendor/jquery/jquery.min.js"></script>
+        <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="/static/js/sb-admin-2.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                let user = {};
+                const _idSession = window.sessionStorage.getItem('_id');
+                const _idLocal = window.localStorage.getItem('_id');
+                const rememberOn = window.localStorage.getItem('rememberOn');
+                const firstName = window.localStorage.getItem('firstName');
+
+                if (_idSession == undefined &&
+                    (_idLocal == undefined || rememberOn == 'false')) {
+                    url = '/'
+                    window.location.href = url;
+                }
+
+                else if (_idSession != undefined && _idLocal == undefined) {
+                    url = '/'
+                    window.location.href = url;
+                }
+
+                else {
+                    $('#userName').text(firstName);
+                    $.post('/users/getProfile', {
+                        id: _idLocal
+                    }).done(function (data) {
+                        user = data;
+                        $('#nameOfUser').text(user.firstName);
+                        $('#firstName').val(user.firstName);
+                        $('#lastName').val(user.lastName)
+                        $('#email').val(user.email);
+                        if (user.phone != null)
+                            $('#phoneNum').val(user.phone);
+                        if (user.country != null)
+                            $('#country').val(user.country);
+                        if (user.city != null)
+                            $('#city').val(user.city);
+                        if (user.street != null)
+                            $('#street').val(user.street);
+                        if (user.zipCode != null)
+                            $('#zipCode').val(user.zipCode);
+                    })
+
+                }
+
+                $("#clickLogout").click(function () {
+                    localStorage.removeItem('_id');
+                    sessionStorage.removeItem('_id');
+                    localStorage.removeItem('firstName');
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('rememberOn');
+                    url = '/users/login'
+                    window.location.href = url;
+                })
+
+
+
+                $("#updateBtn").click(async function () {
+                    await $.post('/users/getProfile', {
+                        id: _idLocal
+                    }).done(function (data) {
+                        user = data;
+
+                    })
+
+                    const newProfileInfo = {
+                        firstName: $('#firstName').val(),
+                        lastName: $('#lastName').val(),
+                        email: $('#email').val(),
+                        phone: $('#phoneNum').val(),
+                        country: $('#country').val(),
+                        city: $('#city').val(),
+                        street: $('#street').val(),
+                        zipCode: $('#zipCode').val(),
+                    }
+
+                    if (newProfileInfo.email.indexOf("@") == -1) {
+                        $('#successModal').modal('show');
+                        $('#modal1').text('The email is not valid, please try again!');
+                    }
+
+                    if (newProfileInfo.firstName === "" ||
+                        newProfileInfo.lastname === "" ||
+                        newProfileInfo.email === "" ||
+                        (user.phone !== "" && newProfileInfo.phone === "") ||
+                        (user.country !== "" && newProfileInfo.country === "") ||
+                        (user.city !== "" && newProfileInfo.city === "") ||
+                        (user.street !== "" && newProfileInfo.street === "") ||
+                        (user.zipCode !== "" && newProfileInfo.zipCode === "")
+                    ) {
+                        $('#successModal').modal('show');
+                        $('#modal1').text('you forbided to erase field that is already in the system, sorry');
+                        $('#dismissBtn').click(function () {
+                            window.location.href = window.location.href;
+                        })
+                    } else {
+
+                        $.post('/users/updateProfile', {
+                            firstName: newProfileInfo.firstName,
+                            lastName: newProfileInfo.lastName,
+                            email: newProfileInfo.email,
+                            phone: newProfileInfo.phone,
+                            country: newProfileInfo.country,
+                            city: newProfileInfo.city,
+                            street: newProfileInfo.street,
+                            zipCode: newProfileInfo.zipCode,
+                            prevEmail: user.email,
+                            id: user._id
+                        }).done(function (data) {
+                            $('#successModal').modal('show');
+                            $('#modal1').text(data);
+                        })
+                    }
+
+
+                })
+
+                $("#changePassword").click(function () {
+                    $("#dialogBox").empty();
+                    $.post('/users/changePassword', {
+                        oldPassword: $('#oldPassword').val(),
+                        newPassword: $('#newPassword').val(),
+                        confirmPassword: $('#confirmPassword').val(),
+                        id: _idLocal
+                    }).then(function (respone) {
+                        const sucessDiv = document.createElement('div');
+                        sucessDiv.classList.add('alert');
+                        sucessDiv.classList.add('alert-success');
+                        sucessDiv.classList.add('alert-dismissible');
+                        sucessDiv.classList.add('fade');
+                        sucessDiv.classList.add('show');
+                        sucessDiv.role = 'alert'
+                        sucessDiv.innerText = respone.data;
+                        $("#dialogBox").append(sucessDiv);
+
+                    }, function (error) {
+                        const message = (JSON.parse(error.responseText)).message;
+
+                        message.forEach(error => {
+                            const errorDiv = document.createElement('div');
+                            errorDiv.classList.add('alert');
+                            errorDiv.classList.add('alert-danger');
+                            errorDiv.classList.add('alert-dismissible');
+                            errorDiv.classList.add('fade');
+                            errorDiv.classList.add('show');
+                            errorDiv.role = 'alert'
+                            errorDiv.innerText = error.msg;
+                            $("#dialogBox").append(errorDiv);
+                        })
+                    });
+                })
+            })
+        </script>
+
+
+</body>
+
+</html>

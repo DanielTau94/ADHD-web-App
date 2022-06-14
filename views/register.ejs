@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>My Webshop
+
+    </title>
+
+    <!-- Custom fonts for this template-->
+    <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/static/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            
+                            </div>
+
+                            <div class="text-center">
+                                <% if(locals.success){ %>
+                                    <% success.forEach(function(success) { %>
+                                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                            <%= success.msg %>
+                                        </div>
+                                        <% }); %>
+                                            <% } %>
+                            </div>
+
+                            <form class="user" action="/users/register" method="POST">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="name" id="firstName" name="firstName"
+                                            class="form-control form-control-user" placeholder="* First Name"
+                                            onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122)"
+                                            maxlength="10"
+                                            value="<%= typeof firstName != 'undefined' ? firstName : '' %>" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="name" id="lastName" name="lastName"
+                                            class="form-control form-control-user" placeholder="* Last Name"
+                                            onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122)"
+                                            maxlength="10"
+                                            value="<%= typeof lastName != 'undefined' ? lastName : '' %>" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" class="form-control form-control-user"
+                                        placeholder="* Email Address"
+                                        onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 64) || (event.charCode == 46)"
+                                        value="<%= typeof email != 'undefined' ? email : '' %>" />
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" id="password" name="password"
+                                            class="form-control form-control-user" placeholder="* Password"
+                                            onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 33 || event.charCode == 64 || (event.charCode >= 35 && event.charCode <= 38) || event.charCode == 94 || event.charCode == 42 || event.charCode == 40 || event.charCode == 41 )"
+                                            maxlength="16"
+                                            value="<%= typeof password != 'undefined' ? password : '' %>" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" id="password2" name="password2"
+                                            class="form-control form-control-user" placeholder=" * Confirm Password"
+                                            onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 33 || event.charCode == 64 || (event.charCode >= 35 && event.charCode <= 38) || event.charCode == 94 || event.charCode == 42 || event.charCode == 40 || event.charCode == 41 )"
+                                            maxlength="16"
+                                            value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="name" id="promoCode" name="promoCode"
+                                            class="form-control form-control-user" placeholder="Insert Promo Code (Optional)"
+                                            onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 33 || event.charCode == 64 || (event.charCode >= 35 && event.charCode <= 38) || event.charCode == 94 || event.charCode == 42 || event.charCode == 40 || event.charCode == 41 )"
+                                            maxlength="16"
+                                            value="<%= typeof promoCode != 'undefined' ? promoCode : '' %>" />
+                                    </div>
+                                </div>
+
+                                <% if(locals.errors){ %>
+                                    <% errors.forEach(function(error) { %>
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <%= error.msg %>
+                                        </div>
+                                        <% }); %>
+                                            <% } %>
+
+                                <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    Register Account
+                                </button>
+                            </form>
+
+
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="/users/resetPassword">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="/users/login">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/static/js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

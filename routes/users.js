@@ -490,6 +490,12 @@ router.post('/updateProfile', async function (req, res) {
     };
 
     await User.findOneAndUpdate(filter, update);
+    
+    let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+    if(!regex.test(email))
+    {
+        res.send("This email is not valid, please try again")
+    }
 
     if (email != prevEmail) {
         const userExistCheck = await User.findOne({ email: email })
@@ -535,9 +541,10 @@ router.post('/updateProfile', async function (req, res) {
             });
         res.send("Updated profile successfully, an email has been sent to you to change your email adress")
 
-    } else {
+    } 
+    else 
         res.send("Your details have been changed successfully!")
-    }
+    
 })
 
 router.get('/updateMail/:base64', async function (req, res) {
@@ -582,6 +589,11 @@ router.post('/changePassword', async function (req, res) {
     if (newPassword.length < 6) {
         errors.push({ msg: 'Password should be minimum 6 characters' });
     }
+
+    
+    if (!/[^a-zA-Z]/.test(newPassword)) 
+        errors.push({ msg: 'Password should contain at least one number' });
+    
 
     if (errors.length > 0) {
         res.status(400).json({

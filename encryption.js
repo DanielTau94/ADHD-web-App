@@ -3,7 +3,7 @@ const algorithm = 'aes-256-cbc';
 //const key = crypto.randomBytes(32);
 const key = "very_very_secret_key";
 const iv = crypto.randomBytes(16);
-
+ 
 
 function encrypt(text) {
     //console.log("to encrypt: " + text)

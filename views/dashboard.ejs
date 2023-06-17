@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>My Webshop</title>
+    <title>My ADHD app</title>
 
     <!-- Custom fonts for this template -->
     <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -39,45 +39,148 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
                 <div class="sidebar-brand-icon">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i class="fas fa-running"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">My Webshop</div>
+                <div class="sidebar-brand-text mx-3">My ADHD app</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Dashboard</span></a>
-            </li>
+                <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Buy
-            </div>
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="/buyPc">
-                    <i class="fas fa-desktop"></i>
-                    <span>PC</span></a>
-            </li>
+        <!-- Heading -->
+        <div class="sidebar-heading"></div>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="/buyCellPhone">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span>Cell Phone</span></a>
-            </li>
+<!-- Nav Item - Classroom -->
+<li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" onclick="toggleClassroomMenu()">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span>Classrooms</span>
+    </a>
+    <ul id="classroomMenu" style="display: none; list-style: none; padding-left: 0;">
+        <li class="nav-item">
+            <a class="nav-link" href="/addclass">
+                <i class="fas fa-plus"></i> Add Class
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/myClasses">
+                <i class="fas fa-tasks"></i> Manage Classes
+            </a>
+        </li>
+    </ul>
+</li>
 
+<!-- Nav Item - Students -->
+<li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" onclick="toggleStudentMenu()">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span>Students</span>
+    </a>
+    <ul id="studentMenu" style="display: none; list-style: none; padding-left: 0;">
+        <li class="nav-item">
+            <a class="nav-link" href="/addStudent">
+                <i class="fas fa-plus"></i> Add Student
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/myStudents">
+                <i class="fas fa-tasks"></i> Manage Students
+            </a>
+        </li>
+    </ul>
+    </a>
+</li>
 
+<!-- Nav Item - Forms -->
+<li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" onclick="toggleFormMenu()">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span>Forms</span>
+    </a>
+    <ul id="formMenu" style="display: none; list-style: none; padding-left: 0;">
+        <li class="nav-item">
+            <a class="nav-link" href="/addForm">
+                <i class="fas fa-plus"></i> Add Form
+            </a>
+        </li>
+       
+    </ul>
+    </a>
+</li>
+<!-- Nav Item - Treatment -->
+<li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" onclick="toggleTreatmentMenu()">
+        <i class="fas fa-notes-medical"></i>
+        <span>Treatment</span>
+    </a>
+    <ul id="treatmentMenu" style="display: none; list-style: none; padding-left: 0;">
+        <li class="nav-item">
+            <a class="nav-link" href="/SingleTreatmentPlan">
+                <i class="fas fa-user"></i> Student Treatment
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/ClassTreatmentPlan">
+                <i class="fas fa-chalkboard-teacher"></i> Class Treatment
+            </a>
+        </li>
+    </ul>
+</li>
 
+<script>
+    function toggleClassroomMenu() {
+        var classroomMenu = document.getElementById("classroomMenu");
+        if (classroomMenu.style.display === "none") {
+            classroomMenu.style.display = "block";
+        } else {
+            classroomMenu.style.display = "none";
+        }
+    }
+</script>
 
+<script>
+    function toggleStudentMenu() {
+        var studentMenu = document.getElementById("studentMenu");
+        if (studentMenu.style.display === "none") {
+            studentMenu.style.display = "block";
+        } else {
+            studentMenu.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function toggleFormMenu() {
+        var formMenu = document.getElementById("formMenu");
+        if (formMenu.style.display === "none") {
+            formMenu.style.display = "block";
+        } else {
+            formMenu.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function toggleTreatmentMenu() {
+        var treatmentMenu = document.getElementById("treatmentMenu");
+        if (treatmentMenu.style.display === "none") {
+            treatmentMenu.style.display = "block";
+        } else {
+            treatmentMenu.style.display = "none";
+        }
+    }
+</script>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -103,14 +206,6 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/buyCellPhone">Buy Cell Phone</a>
-                        </li>
-                        
-                        <div class="topbar-divider d-none d-sm-block"></div>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/buyPc">Buy PC</a>
-                        </li>
 
 
 
@@ -150,85 +245,36 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <!-- Page Heading -->
-                    <div style="margin-left:5%" class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 newFont" style="font-weight: bolder; color:black">Buy:</h1>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <div class="text-center">
+        <h1 class="h3 mb-4 text-gray-800">Welcome to Our ADHD Web App for Teachers</h1>
+        <p class="text-muted">Simplify managing ADHD students and create personalized treatment plans.</p>
+    </div>
 
-                    </div>
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <p class="text-center">
+                Our ADHD web app is designed to empower teachers in effectively managing students with ADHD and creating personalized treatment plans. With our user-friendly platform, you can easily:
+            </p>
 
-                    <!-- Content Row -->
-                    <div class="row">
-                        <div class="col-sm">
-                            <div class="card" style="width: 20rem; margin:auto">
-                                <img src="https://imageio.forbes.com/specials-images/imageserve/607f1107f990e2334540e18e/0x0.jpg?format=jpg&width=1200"
-                                    style="width:320px;height:250px;" class=" card-img-top" alt="...">
-                                <div class="card-body" style="margin:auto">
-                                    <a href="/buyCellPhone" class="btn btn-primary"  style="width:18rem;"><i class="fa fa-plus"></i>&nbsp&nbspBuy CellPhone </a>
-                                    
-                                </div>
-                            </div>
-                        </div>
+            <ul class="list-unstyled">
+                <li><i class="fas fa-check-circle text-primary"></i> Fill forms with student information and ADHD-related questions</li>
+                <li><i class="fas fa-check-circle text-primary"></i> Generate customized treatment plans based on the collected data</li>
+                <li><i class="fas fa-check-circle text-primary"></i> Customize your class with actions such as adding new class, adding student to class.</li>
+            </ul>
 
-
-                        <div class="col-sm">
-                            <div class="card" style="width: 18rem; margin:auto">
-                                <img src="https://m.media-amazon.com/images/I/91LSF1iZUFL._AC_SL1500_.jpg"
-                                    style="width:286px;height:250px;" class="card-img-top" alt="...">
-                                <div class="card-body" style="margin:auto">
-                                    <a href="/buyPc" class="btn btn-primary"  style="width:16rem;" ><i class="fa fa-plus"></i>&nbsp&nbspBuy PC</a>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-
-                    <br>
-                    <br>
-                    <div style="margin-left:5%" class="d-sm-flex align-items-center justify-content-between mb-4 newFont">
-                        <h1 class="h3 mb-0 text-gray-800" style="font-weight: bolder; color:black;">Coming Soon:</h1>
-
-                    </div>
-
-
-
-
-                    <div class="row">
-
-                        <div class="col-sm">
-                            <div class="card" style="width: 18rem; margin:auto">
-                                <img src="https://j5b5y2d2.stackpathcdn.com/wp-content/uploads/2021/11/9206-5.jpg"
-                                    style="width:286px;height:190px;" class="card-img-top" alt="...">
-                            </div>
-                        </div>
-
-
-                        <div class="col-sm">
-                            <div class="card" style="width: 18rem; margin:auto">
-                                <img src="https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/latitude-notebooks/13-3320/media-gallery/peripherals_laptop_latitude_3320_gallery_1.psd?fmt=pjpg&pscan=auto&scl=1&wid=3337&hei=2417&qlt=100,0&resMode=sharp2&size=3337,2417"
-                                    style="width:286px;height:190px;" class="card-img-top" alt="...">
-                            </div>
-                        </div>
-
-                    </div>
-
-
-
-                </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
+            <p class="text-center">Experience the convenience and effectiveness of our ADHD web app and provide optimal care and support for your students.</p>
+        </div>
+    </div>
+</div>
+<!-- End of Main Content -->
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Daniel and Shay 2022</span>
+                        <span>Copyright &copy; Daniel and Kareen 2023</span>
                     </div>
                 </div>
             </footer>

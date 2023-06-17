@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>My ADHD app</title>
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="/static/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/sb-admin-2.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this page -->
+    <link
+      href="/static/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-running"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">My ADHD app</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading"></div>
+
+<!-- Nav Item - Classroom -->
+<li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" onclick="toggleClassroomMenu()">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span>Classrooms</span>
+    </a>
+    <ul id="classroomMenu" style="display: none; list-style: none; padding-left: 0;">
+        <li class="nav-item">
+            <a class="nav-link" href="/addclass">
+                <i class="fas fa-plus"></i> Add Class
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/myClasses">
+                <i class="fas fa-tasks"></i> Manage Classes
+            </a>
+        </li>
+    </ul>
+</li>
+
+<!-- Nav Item - Students -->
+<li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" onclick="toggleStudentMenu()">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span>Students</span>
+    </a>
+    <ul id="studentMenu" style="display: none; list-style: none; padding-left: 0;">
+        <li class="nav-item">
+            <a class="nav-link" href="/addStudent">
+                <i class="fas fa-plus"></i> Add Student
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/myStudents">
+                <i class="fas fa-tasks"></i> Manage Students
+            </a>
+        </li>
+    </ul>
+    </a>
+</li>
+
+<!-- Nav Item - Forms -->
+<li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" onclick="toggleFormMenu()">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span>Forms</span>
+    </a>
+    <ul id="formMenu" style="display: none; list-style: none; padding-left: 0;">
+        <li class="nav-item">
+            <a class="nav-link" href="/addForm">
+                <i class="fas fa-plus"></i> Add Form
+            </a>
+        </li>
+     
+    </ul>
+    </a>
+</li>
+<!-- Nav Item - Treatment -->
+<li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" onclick="toggleTreatmentMenu()">
+        <i class="fas fa-notes-medical"></i>
+        <span>Treatment</span>
+    </a>
+    <ul id="treatmentMenu" style="display: none; list-style: none; padding-left: 0;">
+        <li class="nav-item">
+            <a class="nav-link" href="/SingleTreatmentPlan">
+                <i class="fas fa-user"></i> Student Treatment
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/ClassTreatmentPlan">
+                <i class="fas fa-chalkboard-teacher"></i> Class Treatment
+            </a>
+        </li>
+    </ul>
+</li>
+
+<script>
+    function toggleClassroomMenu() {
+        var classroomMenu = document.getElementById("classroomMenu");
+        if (classroomMenu.style.display === "none") {
+            classroomMenu.style.display = "block";
+        } else {
+            classroomMenu.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function toggleStudentMenu() {
+        var studentMenu = document.getElementById("studentMenu");
+        if (studentMenu.style.display === "none") {
+            studentMenu.style.display = "block";
+        } else {
+            studentMenu.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function toggleFormMenu() {
+        var formMenu = document.getElementById("formMenu");
+        if (formMenu.style.display === "none") {
+            formMenu.style.display = "block";
+        } else {
+            formMenu.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function toggleTreatmentMenu() {
+        var treatmentMenu = document.getElementById("treatmentMenu");
+        if (treatmentMenu.style.display === "none") {
+            treatmentMenu.style.display = "block";
+        } else {
+            treatmentMenu.style.display = "none";
+        }
+    }
+</script>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id="userName" class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                <img class="img-profile rounded-circle"
+                                    src="https://startbootstrap.github.io/startbootstrap-sb-admin-2/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="/profile">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+
+                                <a class="dropdown-item" href="/about">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    About
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" id="clickLogout" href="#" data-toggle="modal"
+                                    data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+<!-- Begin Page Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>Welcome to the ADHD form!</h2>
+      <p>
+        The questions you will be given will assess the your pupil's ADHD levels and generate a customized treatment plan for him!
+      </p>
+      <p>Enter the student ID to start:</p>
+      <form action="/users/singleHyperActivityForm" method="POST">
+        <div class="form-group">
+          <label for="studentID">Student ID:</label>
+          <input type="text" id="studentID" name="studentID" required>
+          <input type="hidden" name="currentPage" value="singleHyperactivityForm">
+        </div>
+        <button type="submit" class="btn btn-primary">Begin Hyperactivity Form</button>
+      </form>
+    </div>
+  </div>
+
+  <% if (typeof message !== 'undefined') { %>
+    <div class="row mt-3"> <!-- Add 'mt-3' class for top margin -->
+      <div class="col-lg-12">
+        <p><%= message %></p>
+        <% if (typeof studentID !== 'undefined') { %>
+          <% if (typeof formDeleted === 'undefined') { %>
+            <div class="btn-group">
+              <form action="/users/editHyperActivityForm" method="POST">
+                <input type="hidden" name="studentID" value="<%= studentID %>">
+                <button type="submit" class="btn btn-primary">Edit Form</button>
+              </form>
+              <form action="/users/deleteHyperActivityForm" method="POST">
+                <input type="hidden" name="studentID" value="<%= studentID %>">
+                <button type="submit" class="btn btn-danger">Delete Form</button>
+              </form>
+            </div>
+          <% } else { %>
+            <p>Feel free to enter the same ID again now, or a different ID.</p>
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+  <% } %>
+</div>
+<!-- End of Page Content -->
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Daniel and Kareen 2023</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Select "Logout" below if you are ready to end your current session.
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <a class="btn btn-primary" href="/dashboard">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/static/js/sb-admin-2.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        const _idSession = window.sessionStorage.getItem("_id");
+        const _idLocal = window.localStorage.getItem("_id");
+        const rememberOn = window.localStorage.getItem("rememberOn");
+
+        if (
+          _idSession == undefined &&
+          (_idLocal == undefined || rememberOn == "false")
+        ) {
+          url = "/";
+          window.location.href = url;
+        }
+
+        if (_idSession != undefined && _idLocal == undefined) {
+          url = "/";
+          window.location.href = url;
+        }
+        const firstName = window.localStorage.getItem("firstName");
+        $("#userName").text(firstName);
+        $("#clickLogout").click(function () {
+          localStorage.removeItem("_id");
+          sessionStorage.removeItem("_id");
+          localStorage.removeItem("firstName");
+          localStorage.removeItem("email");
+          localStorage.removeItem("rememberOn");
+          url = "/users/login";
+          window.location.href = url;
+        });
+      });
+    </script>
+  </body>
+</html>

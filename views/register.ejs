@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>My Webshop
+    <title>My ADHD app
 
     </title>
 
@@ -91,15 +91,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="name" id="promoCode" name="promoCode"
-                                            class="form-control form-control-user" placeholder="Insert Promo Code (Optional)"
-                                            onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 33 || event.charCode == 64 || (event.charCode >= 35 && event.charCode <= 38) || event.charCode == 94 || event.charCode == 42 || event.charCode == 40 || event.charCode == 41 )"
-                                            maxlength="16"
-                                            value="<%= typeof promoCode != 'undefined' ? promoCode : '' %>" />
-                                    </div>
-                                </div>
+                               
 
                                 <% if(locals.errors){ %>
                                     <% errors.forEach(function(error) { %>

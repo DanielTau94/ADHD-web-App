@@ -1,1 +1,1 @@
-module.exports = { MongoURI: 'mongodb+srv://CsProj:Tau2022@electronicshopproject.35c4y.mongodb.net/test' }
+module.exports = { MongoURI: 'mongodb+srv://finalprojadhd2023:Danieltau2023@cluster0.sqy0xic.mongodb.net' }

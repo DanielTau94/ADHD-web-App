@@ -15,7 +15,8 @@
     "request": "^2.88.2",
     "session": "^0.1.0",
     "styliner": "^0.8.9",
-    "url-crypt": "^1.2.1"
+    "url-crypt": "^1.2.1",
+    "colors":"^0.6.2"
   },
   "engine":
   {

@@ -132,17 +132,17 @@ router.get("/addStudent", async (req, res) => {
   }
 });
 
-router.get("/singleHyperActivityForm", (req, res) => {
-  res.render("singleHyperActivityForm");
+router.get("/singleHyperactivityForm", (req, res) => {
+  res.render("singleHyperactivityForm");
 });
 
-router.get("/classHyperActivityForm", async (req, res) => {
+router.get("/classHyperactivityForm", async (req, res) => {
   try {
     const teacherId = req.session.teacherId; // Retrieve teacherId from the session
     const classrooms = await Class.find({ teacherId: teacherId });
     req.session.classrooms = classrooms;
 
-    res.render("classHyperActivityForm", { classrooms });
+    res.render("classHyperactivityForm", { classrooms });
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");

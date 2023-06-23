@@ -454,7 +454,7 @@ router.post("/deleteStudent", async (req, res) => {
   }
 });
 
-router.post("/singleHyperActivityForm", async (req, res) => {
+router.post("/singleHyperactivityForm", async (req, res) => {
   try {
     const studentID = req.body.studentID; // Get the student ID from the request body
 
@@ -463,7 +463,7 @@ router.post("/singleHyperActivityForm", async (req, res) => {
 
     if (existingForm) {
       // If a form already exists, display a message to the teacher
-      return res.render("singleHyperActivityForm", {
+      return res.render("singleHyperactivityForm", {
         message:
           "A form already exists for this student. Do you want to edit or delete the existing form?",
         studentID,
@@ -476,7 +476,7 @@ router.post("/singleHyperActivityForm", async (req, res) => {
 
     if (!student) {
       // Handle case where student is not found
-      return res.render("singleHyperActivityForm", {
+      return res.render("singleHyperactivityForm", {
         message: "Student not found. Please enter a valid student ID.",
         studentID,
       });
@@ -630,8 +630,8 @@ router.post("/deleteHyperActivityForm", async (req, res) => {
     await HyperactivityQnA.deleteOne({ studentID });
     await Student.updateOne({ studentID }, { hasForm: "No" });
 
-    // Redirect back to the singleHyperActivityForm page with a success message and the deleted flag
-    res.render("singleHyperActivityForm", {
+    // Redirect back to the singleHyperactivityForm page with a success message and the deleted flag
+    res.render("singleHyperactivityForm", {
       message: "Form deleted successfully.",
       studentID,
       formDeleted: true,

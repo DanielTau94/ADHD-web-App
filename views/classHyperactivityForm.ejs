@@ -270,7 +270,15 @@
         </div>
         <button type="submit" class="btn btn-primary">Begin Hyperactivity Form</button>
       </form>
-
+      <% if (message && message.type === 'error') { %>
+        <div class="alert alert-danger mt-3" role="alert">
+          <%= message.text %>
+        </div>
+        <% } %> <% if (message && message.type === 'success') { %>
+        <div class="alert alert-success mt-3" role="alert">
+          <%= message.text %>
+        </div>
+        <% } %>
    
 <!-- End of Page Content -->
         <!-- Footer -->

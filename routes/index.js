@@ -137,11 +137,12 @@ router.get("/singleHyperactivityForm", (req, res) => {
 
 router.get("/classHyperactivityForm", async (req, res) => {
   try {
+    const message = "";
     const teacherId = req.session.teacherId; // Retrieve teacherId from the session
     const classrooms = await Class.find({ teacherId: teacherId });
     req.session.classrooms = classrooms;
 
-    res.render("classHyperactivityForm", { classrooms });
+    res.render("classHyperactivityForm", { classrooms,message: message });
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");

@@ -268,6 +268,7 @@
               <th>Last Name</th>
               <th>Age</th>
               <th>Class</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -278,6 +279,9 @@
               <td><%= students[i].studentLastName %></td>
               <td><%= students[i].studentAge %></td>
               <td><%= students[i].studentClass %></td>
+              <td>
+                <i class="fas fa-trash text-danger" style="cursor: pointer;" data-toggle="modal" data-target="#confirmationModal<%= students[i].studentID %>"></i>
+              </td>
             </tr>
             <% } %>
           </tbody>
@@ -286,7 +290,41 @@
     </div>
   </div>
 </div>
+
+<!-- Confirmation Modal -->
+<% for (let i = 0; i < students.length; i++) { %>
+  <div class="modal fade" id="confirmationModal<%= students[i].studentID %>" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel<%= students[i].studentID %>" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmationModalLabel<%= students[i].studentID %>">Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this student?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <form method="POST" action="/users/deleteStudent">
+            <input type="hidden" name="studentID" value="<%= students[i].studentID %>">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<% } %>
+
 <!-- End of Page Content -->
+
+<!-- Script for Confirmation -->
+<script>
+  function showConfirmation(studentID) {
+    $('#confirmationModal' + studentID).modal('show');
+  }
+</script>
 
 <!-- Modal Dialog for Confirmation Message -->
 <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
@@ -299,7 +337,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Do you want to view the treatment plan for this student?
+        <p id="confirmationMessage">Do you want to view the treatment plan for this student?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -311,13 +349,22 @@
 
 <script>
   function showConfirmation(studentID) {
-    $("#confirmationModal").modal("show");
-    $("#confirmRedirectBtn").click(function() {
-      window.location.href = "/displaySingleTreatmentPlan?studentID=" + studentID;
+    $.get("/users/getStudent", { studentID: studentID }, function(data) {
+      if (data.hasForm) {
+        $("#confirmationModal").modal("show");
+        $("#confirmationMessage").text("Do you want to view the treatment plan for this student?");
+        $("#confirmRedirectBtn").show();
+        $("#confirmRedirectBtn").click(function() {
+          window.location.href = "/displaySingleTreatmentPlan?studentID=" + studentID;
+        });
+      } else {
+        $("#confirmationModal").modal("show");
+        $("#confirmationMessage").text("No treatment plan found for this student. Please fill out a form first.");
+        $("#confirmRedirectBtn").hide();
+      }
     });
   }
 </script>
-
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">

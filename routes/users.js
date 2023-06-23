@@ -427,10 +427,9 @@ router.post("/deleteClass", async (req, res) => {
 // POST route to delete a student
 router.post("/deleteStudent", async (req, res) => {
   try {
-    const studentId = req.body.studentId; // Retrieve the student ID from the request body
-
+    const studentId = req.body.studentID; // Retrieve the student ID from the request body
     // Find the student document using the student ID
-    const student = await Student.findById(studentId);
+    const student = await Student.findOne({ studentID: studentId });
 
     // If the student is found, update the class size of the corresponding class
     if (student) {
@@ -444,7 +443,7 @@ router.post("/deleteStudent", async (req, res) => {
     }
 
     // Delete the student document from the collection using the student ID
-    await Student.findByIdAndDelete(studentId);
+    await Student.findOneAndDelete({ studentID: studentId });
 
     // Redirect the user to the "myStudents" page or any other desired page
     res.redirect("/myStudents");
@@ -669,7 +668,7 @@ router.post("/editHyperActivityForm", async (req, res) => {
   }
 });
 
-router.post("/classHyperActivityForm", async (req, res) => {
+router.post("/classHyperactivityForm", async (req, res) => {
   try {
     const className = req.body.className; // Get the class name from the request body
     const teacherId = req.session.teacherId;
@@ -679,10 +678,12 @@ router.post("/classHyperActivityForm", async (req, res) => {
 
     if (students.length === 0) {
       // Handle case where no students are found for the class
-      return res.render("classHyperActivityForm", {
-        message:
-          "No students found for the selected class. Please choose another class.",
-        classrooms,
+      return res.render("classHyperactivityForm", {
+        message: {
+          type: "error",
+          text: "No students found for the selected class. Please choose another class.",
+        },
+        classrooms: classrooms,
       });
     }
 

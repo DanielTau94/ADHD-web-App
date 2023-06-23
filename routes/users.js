@@ -818,7 +818,7 @@ router.post("/submitClassHyperactivityForm", async (req, res) => {
   }
 });
 
-router.post("/SingleTreatmentPlan", async (req, res) => {
+router.post("/singleTreatmentPlan", async (req, res) => {
   try {
     const studentID = req.body.studentID; // Get the student ID from the request body
 
@@ -831,7 +831,7 @@ router.post("/SingleTreatmentPlan", async (req, res) => {
     }
 
     // If a treatment plan doesn't exist, render the page with an error message
-    return res.render("SingleTreatmentPlan", {
+    return res.render("singleTreatmentPlan", {
       message: "Treatment plan does not exist for this student.",
       studentID,
     });
@@ -841,7 +841,7 @@ router.post("/SingleTreatmentPlan", async (req, res) => {
   }
 });
 
-router.post("/ClassTreatmentPlan", async (req, res) => {
+router.post("/classTreatmentPlan", async (req, res) => {
   try {
     const className = req.body.className; // Get the class name from the request body
     const teacherId = req.session.teacherId;
@@ -851,7 +851,7 @@ router.post("/ClassTreatmentPlan", async (req, res) => {
 
     if (students.length === 0) {
       // Handle case where no students are found for the class
-      return res.render("ClassTreatmentPlan", {
+      return res.render("classTreatmentPlan", {
         message: {
           type: "error",
           text: "No students found for the selected class. Please choose another class.",

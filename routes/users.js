@@ -829,11 +829,13 @@ router.post("/singleTreatmentPlan", async (req, res) => {
     if (existingTreatmentPlan) {
       // If a treatment plan already exists, redirect to the displaySingleTreatmentPlan route
       return res.redirect(`/displaySingleTreatmentPlan?studentID=${studentID}`);
-    }
-
+    }    
     // If a treatment plan doesn't exist, render the page with an error message
     return res.render("singleTreatmentPlan", {
-      message: "Treatment plan does not exist for this student.",
+      message: {
+        type: "error",
+        text: "Treatment plan does not exist for this student.",
+      },
       studentID,
     });
   } catch (err) {

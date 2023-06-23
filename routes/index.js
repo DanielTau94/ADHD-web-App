@@ -53,7 +53,8 @@ router.get("/formSubmitted", (req, res) => {
 });
 
 router.get("/singleTreatmentPlan", (req, res) => {
-  res.render("singleTreatmentPlan");
+  const message = "";
+  res.render("singleTreatmentPlan", { message: message });
 });
 
 router.get("/myClasses", async (req, res) => {
@@ -142,7 +143,7 @@ router.get("/classHyperactivityForm", async (req, res) => {
     const classrooms = await Class.find({ teacherId: teacherId });
     req.session.classrooms = classrooms;
 
-    res.render("classHyperactivityForm", { classrooms,message: message });
+    res.render("classHyperactivityForm", { classrooms, message: message });
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");

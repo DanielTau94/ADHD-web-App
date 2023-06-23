@@ -267,6 +267,11 @@
         </div>
         <button type="submit" class="btn btn-primary">View treatment plan</button>
       </form>
+      <% if (message && message.type === 'error') { %>
+        <div class="alert alert-danger mt-3" role="alert">
+          <%= message.text %>
+        </div>
+        <% } %>
     </div>
   </div>
 <!-- End of Page Content -->

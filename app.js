@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const session = require('express-session');
 const bodyParser = require("body-parser");
-
+const path = require("path"); // Added path module
 const app = express();
 
 // BD Config
@@ -24,6 +24,7 @@ mongoose
   .catch((err) => console.log(err));
 
 // EJS
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // cookie parser

@@ -285,7 +285,7 @@
                       <input type="hidden" name="studentID" value="<%= students[i].studentID %>">
                       <button type="submit" class="btn btn-link"><i class="fas fa-edit"></i></button>
                     </form>
-                    <form action="/users/singleHyperActivityForm" method="POST">
+                    <form action="/users/singleHyperactivityForm" method="POST">
                       <input type="hidden" name="studentID" value="<%= students[i].studentID %>">
                       <button type="button" class="btn btn-link fas-plus-button" data-has-form="<%= students[i].hasForm %>"><i class="fas fa-plus"></i></button>
                     </form>
@@ -374,7 +374,7 @@
       link.addEventListener("click", function(event) {
         event.preventDefault();
         const hasForm = link.getAttribute("data-has-form");
-        const formAction = hasForm === "Yes" ? "/users/editHyperActivityForm" : "/users/singleHyperActivityForm";
+        const formAction = hasForm === "Yes" ? "/users/editHyperActivityForm" : "/users/singleHyperactivityForm";
         const confirmationMessage = hasForm === "Yes" ? "A form already exists for this student. Do you want to edit the form?" : "No form exists for this student. Do you want to begin a new form?";
         showConfirmationDialog(confirmationMessage, function(result) {
           if (result) {

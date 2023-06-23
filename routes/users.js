@@ -669,7 +669,7 @@ router.post("/editHyperActivityForm", async (req, res) => {
   }
 });
 
-router.post("/ClassHyperActivityForm", async (req, res) => {
+router.post("/classHyperActivityForm", async (req, res) => {
   try {
     const className = req.body.className; // Get the class name from the request body
     const teacherId = req.session.teacherId;
@@ -679,7 +679,7 @@ router.post("/ClassHyperActivityForm", async (req, res) => {
 
     if (students.length === 0) {
       // Handle case where no students are found for the class
-      return res.render("ClassHyperActivityForm", {
+      return res.render("classHyperActivityForm", {
         message:
           "No students found for the selected class. Please choose another class.",
         classrooms,
@@ -727,7 +727,7 @@ router.get("/ClasshyperactiveQnA", (req, res) => {
     // Retrieve the selected answer for the current question or set it to an empty string
     const selectedAnswer = answers[currentPage] || "";
 
-    res.render("ClassHyperactiveQnA", {
+    res.render("classHyperactiveQnA", {
       studentName,
       studentID,
       editMode,
@@ -741,7 +741,7 @@ router.get("/ClasshyperactiveQnA", (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-router.post("/ClassHyperactiveQnA", (req, res) => {
+router.post("/classHyperactiveQnA", (req, res) => {
   try {
     const action = req.body.action;
     let currentPage = parseInt(req.body.currentPage);
@@ -757,7 +757,7 @@ router.post("/ClassHyperactiveQnA", (req, res) => {
       currentPage = parseInt(req.body.nextPage);
     }
 
-    res.redirect(`/users/ClassHyperactiveQnA?page=${currentPage}`);
+    res.redirect(`/users/classHyperactiveQnA?page=${currentPage}`);
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");
@@ -880,17 +880,13 @@ router.post("/classTreatmentPlan", async (req, res) => {
 
 router.get('/getStudent', async (req, res) => {
   const { studentID } = req.query;
-  console.log("im here daniel");
 
   try {
     const students = await Student.find({ studentID: studentID });
-    console.log(students);
 
     if (students.length > 0 && students[0].hasForm === 'Yes') {
-      console.log("true!");
       res.json({ hasForm: true });
     } else {
-      console.log("false!");
       res.json({ hasForm: false });
     }
   } catch (err) {

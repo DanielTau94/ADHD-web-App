@@ -89,7 +89,6 @@ router.get("/myStudents", async (req, res) => {
 
     // Retrieve the classes that match the teacherId
     const classrooms = await Class.find({ teacherId: teacherId });
-    console.log(classrooms);
     // Retrieve the total number of students in the collection that belong to the teacher's classes
     const totalStudents = await Student.countDocuments({
       studentClass: { $in: classrooms.map((classroom) => classroom.className) },
@@ -150,7 +149,6 @@ router.get("/classHyperactivityForm", async (req, res) => {
 });
 router.get("/displayStudentsInClass", async (req, res) => {
   try {
-    console.log("im here! 123");
     const className = req.query.className; // Get the class name from the query parameter
     const page = parseInt(req.query.page) || 1; // Get the current page from the query parameter
     const ITEMS_PER_PAGE = 3; // Number of students to display per page

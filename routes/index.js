@@ -52,8 +52,8 @@ router.get("/formSubmitted", (req, res) => {
   res.render("formSubmitted", { successMessage, errorMessage });
 });
 
-router.get("/SingleTreatmentPlan", (req, res) => {
-  res.render("SingleTreatmentPlan");
+router.get("/singleTreatmentPlan", (req, res) => {
+  res.render("singleTreatmentPlan");
 });
 
 router.get("/myClasses", async (req, res) => {

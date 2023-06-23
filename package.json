@@ -24,7 +24,7 @@
     "call-bind": "^1.0.2",
     "caseless": "^0.12.0",
     "chalk": "^4.1.2",
-    "cheerio": "^0.10.8",
+    "cheerio": "^1.0.0-rc.12",
     "cheerio-select": "^2.1.0",
     "color-convert": "^2.0.1",
     "color-name": "^1.1.4",
@@ -110,7 +110,7 @@
     "json-stringify-safe": "^5.0.1",
     "jsprim": "^1.4.2",
     "kareem": "^2.5.1",
-    "lodash": "^1.0.2",
+    "lodash": "^4.17.21",
     "media-typer": "^0.3.0",
     "memory-pager": "^1.5.0",
     "merge-descriptors": "^1.0.1",
@@ -147,7 +147,7 @@
     "psl": "^1.9.0",
     "punycode": "^2.3.0",
     "q": "^1.5.1",
-    "q-io": "^1.13.6",
+    "q-io": "^1.2.0",
     "qs": "^6.11.0",
     "qx": "^0.2.4",
     "random-bytes": "^1.0.0",
@@ -170,7 +170,7 @@
     "sshpk": "^1.17.0",
     "stack-trace": "^0.0.10",
     "statuses": "^2.0.1",
-    "styliner": "^0.8.9",
+    "styliner": "^1.1.0",
     "supports-color": "^7.2.0",
     "toidentifier": "^1.0.1",
     "tough-cookie": "^2.5.0",
@@ -194,14 +194,13 @@
     "vows": "^0.8.3",
     "webidl-conversions": "^7.0.0",
     "whatwg-url": "^11.0.0",
-    "winston": "^0.6.2",
+    "winston": "^3.9.0",
     "wordwrap": "^1.0.0",
     "wrappy": "^1.0.2"
   },
   "engine": {
     "node": "18.16.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"

@@ -288,23 +288,25 @@
                       <% treatmentPlans[student.studentID].sort((a, b) => b.answer - a.answer).forEach((question, index) => { %>
                         <% let score = question.answer; %>
                         <% let treatmentStyle = ''; %>
-                        <% if (score === 2 || score === 3) { %>
-                          <% treatmentStyle = 'background-color: #ffc107; color: black;'; %>
-                        <% } else if (score >= 4 && score <= 5) { %>
-                          <% treatmentStyle = 'background-color: red; color: white;'; %>
-                        <% } else if (score === 1) { %>
-                          <% treatmentStyle = 'background-color: #28a745; color: black;'; %>
-                        <% } %>
-                        <td <% if (treatmentStyle) { %>style="<%= treatmentStyle %>"<% } %>>
-                          <% if (score >= 4 && score <= 5) { %>
-                            <i class="fas fa-exclamation-circle"></i>
-                          <% } else if (score === 2 || score === 3) { %>
-                            <i class="fas fa-exclamation-triangle"></i>
+                        <% if (score !== 0) { %>
+                          <% if (score === 2 || score === 3) { %>
+                            <% treatmentStyle = 'background-color: #ffc107; color: black;'; %>
+                          <% } else if (score >= 4 && score <= 5) { %>
+                            <% treatmentStyle = 'background-color: red; color: white;'; %>
                           <% } else if (score === 1) { %>
-                            <i class="fas fa-info-circle"></i>
+                            <% treatmentStyle = 'background-color: #28a745; color: black;'; %>
                           <% } %>
-                          <span class="question-treatment"><%= question.treatment %></span>
-                        </td>
+                          <td <% if (treatmentStyle) { %>style="<%= treatmentStyle %>"<% } %>>
+                            <% if (score >= 4 && score <= 5) { %>
+                              <i class="fas fa-exclamation-circle"></i>
+                            <% } else if (score === 2 || score === 3) { %>
+                              <i class="fas fa-exclamation-triangle"></i>
+                            <% } else if (score === 1) { %>
+                              <i class="fas fa-info-circle"></i>
+                            <% } %>
+                            <span class="question-treatment"><%= question.treatment %></span>
+                          </td>
+                        <% } %>
                       <% }); %>
                     <% } else if (students.length > 0 && treatmentPlans[students[0].studentID]) { %>
                       <% treatmentPlans[students[0].studentID].forEach(() => { %>
@@ -357,8 +359,6 @@
 <script>
   function showConfirmation(studentID) {
     $.get("/users/getStudent", { studentID: studentID }, function(data) {
-      console.log("sdasl;dkas;dlk12321")
-      console.log(data)
       if (data.hasForm) {
         $("#confirmationModal").modal("show");
         $("#confirmationMessage").text("Do you want to view the treatment plan for this student?");

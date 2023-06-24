@@ -276,6 +276,7 @@
           </div>
           <div class="row treatment-grid">
             <% treatmentPlan.questions
+                .filter(question => question.answer > 0) // Filter out treatments with answer 0
                 .sort((a, b) => b.answer - a.answer) // Sort treatments by score in descending order
                 .forEach(question => { %>
               <% let score = question.answer; %>
@@ -303,7 +304,7 @@
               </div>
             <% }); %>
           </div>
-          <% if (treatmentPlan.questions.length > 1) { %>
+          <% if (treatmentPlan.questions.filter(question => question.answer > 0).length > 1) { %>
             <button id="loadMoreBtn" class="btn btn-primary">Load More</button>
           <% } %>
         </div>
@@ -422,7 +423,7 @@
     loadMoreBtn.addEventListener('click', () => {
       treatmentsShown += 1;
       showTreatments();
-      if (treatmentsShown >= treatmentPlan.questions.length) {
+      if (treatmentsShown >= treatmentPlan.questions.filter(question => question.answer > 0).length) {
         loadMoreBtn.style.display = 'none';
       }
     });

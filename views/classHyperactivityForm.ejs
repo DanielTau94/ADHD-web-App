@@ -254,11 +254,14 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h2>Welcome to the first part of the ADHD form: Hyperactivity</h2>
+      <h2>Welcome to the ADHD Form</h2>
       <p>
-        The hyperactivity section assesses the level of hyperactivity in the student. You will be asked to provide a score from 1 to 9 for each question, where 1 represents the lowest level and 9 represents the highest level of hyperactivity.
+      The ADHD Form evaluates various aspects related to ADHD symptoms in the student. In this section, you will be presented with a series of questions and asked to provide a rating on a scale of 0 to 5 for each question. A rating of 0 indicates the absence or very minimal presence of the symptom, while a rating of 5 represents a high level of the symptom.
       </p>
-      <p>Select the class to start:</p>
+      <p>
+      Please carefully consider each question and provide an accurate rating based on your observations and knowledge of the student's behavior. Your input will contribute to a comprehensive assessment of ADHD-related symptoms.
+      </p>
+      <p>Select the class to start:</p>      
       <form action="/users/classHyperActivityForm" method="POST">
         <div class="form-group">
           <label for="classSelector">Select Class:</label>
@@ -268,7 +271,7 @@
             <% } %>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">Begin Hyperactivity Form</button>
+        <button type="submit" class="btn btn-primary">Begin ADHD Form</button>
       </form>
       <% if (message && message.type === 'error') { %>
         <div class="alert alert-danger mt-3" role="alert">
